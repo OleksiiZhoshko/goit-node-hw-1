@@ -1,0 +1,25 @@
+{
+  "name": "goit-node-hw-1",
+  "version": "1.0.0",
+  "description": "hw1",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "dev": "index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OleksiiZhoshko/goit-node-hw-1.git"
+  },
+  "author": "Oleksii Zhoshko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OleksiiZhoshko/goit-node-hw-1/issues"
+  },
+  "homepage": "https://github.com/OleksiiZhoshko/goit-node-hw-1#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7",
+    "yargs": "^17.7.1"
+  }
+}
