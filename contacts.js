@@ -2,6 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const contactsPath = path.join(__dirname, "./db/contacts.json");
 const { nanoid } = require("nanoid");
+const chalk = require("chalk");
 
 async function listContacts() {
   try {
@@ -18,11 +19,11 @@ async function getContactById(contactId) {
     const contact = contacts.find((contact) => contact.id === contactId);
 
     if (!contact) {
-      console.log("contact not found!!!");
+      console.log(chalk.red("contact not found!!!"));
       return;
     }
 
-    console.log("Contact found:", contact);
+    console.log(chalk.bgBlue("Contact found:"), contact);
   } catch (error) {
     console.log(error);
   }
@@ -36,12 +37,12 @@ async function removeContact(contactId) {
     );
 
     if (contacts.length === filterContacts.length) {
-      console.log("Not found");
+      console.log(chalk.red("Not found"));
       return;
     }
 
     await fs.writeFile(contactsPath, JSON.stringify(filterContacts), "utf-8");
-    console.log("Deleted!");
+    console.log(chalk.green("Deleted!"));
   } catch (error) {
     console.log(error);
   }
@@ -54,7 +55,7 @@ async function addContact(name, email, phone) {
     contacts.push(addContact);
 
     await fs.writeFile(contactsPath, JSON.stringify(contacts), "utf-8");
-    console.log("Contact added:", addContact);
+    console.log(chalk.green("Contact added:"), addContact);
   } catch (error) {
     console.log(error);
   }
